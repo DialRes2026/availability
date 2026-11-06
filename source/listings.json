@@ -9,7 +9,7 @@
       "beds": 3,
       "baths": 2,
       "sqft": 1569,
-      "rent": 3399,
+      "rent": 3385,
       "status": "Available Now",
       "matterportUrl": "https://my.matterport.com/show/?m=agr3MiDYLhC",
       "description": "This expansive three-bedroom, two-bathroom unit at Mowbray Manor is on the second floor, spanning 1569 square feet. Inside, you'll find quartz countertops, stainless steel appliances, and large windows that create a bright and airy atmosphere. The residence features a balcony, in-unit laundry, tile shower surrounds, and a walk-in closet for added convenience. High-end finishes like a wine and beverage chiller, wood-style plank flooring, and soft-close cabinets bring modern comforts to this home.",
@@ -47,7 +47,7 @@
       "petPolicy": "Cats allowed · Dogs allowed",
       "fees": {
         "applicationFee": 75,
-        "securityDeposit": 3399,
+        "securityDeposit": 338500,
         "required": [
           {
             "name": "Technology Fee",
@@ -78,7 +78,7 @@
       "beds": 2,
       "baths": 2,
       "sqft": 1764,
-      "rent": 3449,
+      "rent": 3440,
       "status": "Available 11/10/26",
       "matterportUrl": "https://my.matterport.com/show/?m=3oLa4BTTdGc",
       "description": "This two bedroom, two bathroom townhome at Tributary 50 blends spacious design with upgraded features. The unit includes an extra lofted den, offering a versatile space for a study or relaxation area. The private garage and entry offers the ultimate convenience. The covered balcony adds an outdoor element, perfect for quiet mornings or evening gatherings. An oversized primary bedroom suite provides a comfortable escape, complemented by the living room’s two-story window wall and double height ceilings that invite an abundance of natural light. Elevated finishes like quartz countertops, stainless steel appliances, wine refrigerator, and tile showers will make you feel at home.",
@@ -112,7 +112,7 @@
       "petPolicy": "Cats allowed · Dogs allowed",
       "fees": {
         "applicationFee": 75,
-        "securityDeposit": 3449,
+        "securityDeposit": 3440,
         "required": [
           {
             "name": "Technology Fee",
