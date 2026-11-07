@@ -250,6 +250,22 @@ def main():
         print("FAILED - nothing written: %s" % e)
         return 1
 
+    # Sanity check: catch AppFolio typos (e.g. a $3,385 deposit entered as 338500) before they go live.
+    bad = []
+    for r in parsed:
+        rent, dep, app_fee = r["rent"], r["fees"]["securityDeposit"], r["fees"]["applicationFee"]
+        if not 500 <= rent <= 15000:
+            bad.append("%s Unit %s rent $%s" % (r["property"], r["unit"], format(rent, ",")))
+        if dep > max(3 * rent, 1000):
+            bad.append("%s Unit %s security deposit $%s (rent is $%s)" % (r["property"], r["unit"], format(dep, ","), format(rent, ",")))
+        if app_fee > 500:
+            bad.append("%s Unit %s application fee $%s" % (r["property"], r["unit"], format(app_fee, ",")))
+    if bad:
+        print("FAILED - nothing written. These AppFolio values look like typos; fix them in AppFolio:")
+        for b in bad:
+            print("  - " + b)
+        return 1
+
     current = json.load(open(LISTINGS, encoding="utf-8"))
     skipped, new = [], []
     for r in parsed:

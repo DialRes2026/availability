@@ -47,7 +47,7 @@
       "petPolicy": "Cats allowed · Dogs allowed",
       "fees": {
         "applicationFee": 75,
-        "securityDeposit": 338500,
+        "securityDeposit": 3385,
         "required": [
           {
             "name": "Technology Fee",
