@@ -91,6 +91,8 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: .
+      - name: Let GitHub register the upload
+        run: sleep 30
       - id: deploy1
         continue-on-error: true
         uses: actions/deploy-pages@v5
