@@ -77,15 +77,12 @@ jobs:
 
   deploy:
     needs: sync
-    if: >-
-      always() &&
-      (github.event_name == 'push' ||
-       (needs.sync.result == 'success' && needs.sync.outputs.changed == 'true') ||
-       (github.event_name == 'workflow_dispatch' && needs.sync.result == 'success'))
+    # Publish on every run (not just when data changed), so a failed publish heals itself the next morning.
+    if: always() && (github.event_name == 'push' || needs.sync.result == 'success')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy2.outputs.page_url || steps.deploy1.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -94,7 +91,14 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - id: deployment
+      - id: deploy1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait before retrying (GitHub Pages hiccup)
+        if: steps.deploy1.outcome == 'failure'
+        run: sleep 60
+      - id: deploy2
+        if: steps.deploy1.outcome == 'failure'
         uses: actions/deploy-pages@v4
 
   flag-skipped-units:
